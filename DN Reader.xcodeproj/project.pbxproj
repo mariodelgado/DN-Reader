@@ -394,6 +394,7 @@
 				GCC_PREFIX_HEADER = "DN Reader/DN Reader-Prefix.pch";
 				INFOPLIST_FILE = "DN Reader/DN Reader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -407,6 +408,7 @@
 				GCC_PREFIX_HEADER = "DN Reader/DN Reader-Prefix.pch";
 				INFOPLIST_FILE = "DN Reader/DN Reader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -470,6 +472,7 @@
 				FE068023192C50C70099C6C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE068024192C50C70099C6C6 /* Build configuration list for PBXNativeTarget "DN ReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +481,7 @@
 				FE068026192C50C70099C6C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
