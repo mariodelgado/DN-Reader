@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE067FF0192C50C60099C6C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE067FEF192C50C60099C6C6 /* Foundation.framework */; };
+		FE067FF2192C50C60099C6C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE067FF1192C50C60099C6C6 /* CoreGraphics.framework */; };
+		FE067FF4192C50C60099C6C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE067FF3192C50C60099C6C6 /* UIKit.framework */; };
+		FE067FFA192C50C60099C6C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE067FF8192C50C60099C6C6 /* InfoPlist.strings */; };
+		FE067FFC192C50C60099C6C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE067FFB192C50C60099C6C6 /* main.m */; };
+		FE068000192C50C60099C6C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE067FFF192C50C60099C6C6 /* AppDelegate.m */; };
+		FE068003192C50C60099C6C6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE068001192C50C60099C6C6 /* Main_iPhone.storyboard */; };
+		FE068006192C50C60099C6C6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE068004192C50C60099C6C6 /* Main_iPad.storyboard */; };
+		FE068009192C50C60099C6C6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE068008192C50C60099C6C6 /* ViewController.m */; };
+		FE06800B192C50C60099C6C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE06800A192C50C60099C6C6 /* Images.xcassets */; };
+		FE068012192C50C70099C6C6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE068011192C50C70099C6C6 /* XCTest.framework */; };
+		FE068013192C50C70099C6C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE067FEF192C50C60099C6C6 /* Foundation.framework */; };
+		FE068014192C50C70099C6C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE067FF3192C50C60099C6C6 /* UIKit.framework */; };
+		FE06801C192C50C70099C6C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE06801A192C50C70099C6C6 /* InfoPlist.strings */; };
+		FE06801E192C50C70099C6C6 /* DN_ReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06801D192C50C70099C6C6 /* DN_ReaderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE068015192C50C70099C6C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE067FE4192C50C60099C6C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE067FEB192C50C60099C6C6;
+			remoteInfo = "DN Reader";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FE067FEC192C50C60099C6C6 /* DN Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DN Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE067FEF192C50C60099C6C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FE067FF1192C50C60099C6C6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FE067FF3192C50C60099C6C6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FE067FF7192C50C60099C6C6 /* DN Reader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DN Reader-Info.plist"; sourceTree = "<group>"; };
+		FE067FF9192C50C60099C6C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE067FFB192C50C60099C6C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FE067FFD192C50C60099C6C6 /* DN Reader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DN Reader-Prefix.pch"; sourceTree = "<group>"; };
+		FE067FFE192C50C60099C6C6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FE067FFF192C50C60099C6C6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FE068002192C50C60099C6C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		FE068005192C50C60099C6C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		FE068007192C50C60099C6C6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FE068008192C50C60099C6C6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FE06800A192C50C60099C6C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FE068010192C50C70099C6C6 /* DN ReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DN ReaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE068011192C50C70099C6C6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FE068019192C50C70099C6C6 /* DN ReaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DN ReaderTests-Info.plist"; sourceTree = "<group>"; };
+		FE06801B192C50C70099C6C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE06801D192C50C70099C6C6 /* DN_ReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DN_ReaderTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE067FE9192C50C60099C6C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE067FF2192C50C60099C6C6 /* CoreGraphics.framework in Frameworks */,
+				FE067FF4192C50C60099C6C6 /* UIKit.framework in Frameworks */,
+				FE067FF0192C50C60099C6C6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE06800D192C50C70099C6C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE068012192C50C70099C6C6 /* XCTest.framework in Frameworks */,
+				FE068014192C50C70099C6C6 /* UIKit.framework in Frameworks */,
+				FE068013192C50C70099C6C6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE067FE3192C50C60099C6C6 = {
+			isa = PBXGroup;
+			children = (
+				FE067FF5192C50C60099C6C6 /* DN Reader */,
+				FE068017192C50C70099C6C6 /* DN ReaderTests */,
+				FE067FEE192C50C60099C6C6 /* Frameworks */,
+				FE067FED192C50C60099C6C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE067FED192C50C60099C6C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE067FEC192C50C60099C6C6 /* DN Reader.app */,
+				FE068010192C50C70099C6C6 /* DN ReaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE067FEE192C50C60099C6C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE067FEF192C50C60099C6C6 /* Foundation.framework */,
+				FE067FF1192C50C60099C6C6 /* CoreGraphics.framework */,
+				FE067FF3192C50C60099C6C6 /* UIKit.framework */,
+				FE068011192C50C70099C6C6 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE067FF5192C50C60099C6C6 /* DN Reader */ = {
+			isa = PBXGroup;
+			children = (
+				FE067FFE192C50C60099C6C6 /* AppDelegate.h */,
+				FE067FFF192C50C60099C6C6 /* AppDelegate.m */,
+				FE068001192C50C60099C6C6 /* Main_iPhone.storyboard */,
+				FE068004192C50C60099C6C6 /* Main_iPad.storyboard */,
+				FE068007192C50C60099C6C6 /* ViewController.h */,
+				FE068008192C50C60099C6C6 /* ViewController.m */,
+				FE06800A192C50C60099C6C6 /* Images.xcassets */,
+				FE067FF6192C50C60099C6C6 /* Supporting Files */,
+			);
+			path = "DN Reader";
+			sourceTree = "<group>";
+		};
+		FE067FF6192C50C60099C6C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE067FF7192C50C60099C6C6 /* DN Reader-Info.plist */,
+				FE067FF8192C50C60099C6C6 /* InfoPlist.strings */,
+				FE067FFB192C50C60099C6C6 /* main.m */,
+				FE067FFD192C50C60099C6C6 /* DN Reader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FE068017192C50C70099C6C6 /* DN ReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE06801D192C50C70099C6C6 /* DN_ReaderTests.m */,
+				FE068018192C50C70099C6C6 /* Supporting Files */,
+			);
+			path = "DN ReaderTests";
+			sourceTree = "<group>";
+		};
+		FE068018192C50C70099C6C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE068019192C50C70099C6C6 /* DN ReaderTests-Info.plist */,
+				FE06801A192C50C70099C6C6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE067FEB192C50C60099C6C6 /* DN Reader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE068021192C50C70099C6C6 /* Build configuration list for PBXNativeTarget "DN Reader" */;
+			buildPhases = (
+				FE067FE8192C50C60099C6C6 /* Sources */,
+				FE067FE9192C50C60099C6C6 /* Frameworks */,
+				FE067FEA192C50C60099C6C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DN Reader";
+			productName = "DN Reader";
+			productReference = FE067FEC192C50C60099C6C6 /* DN Reader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FE06800F192C50C70099C6C6 /* DN ReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE068024192C50C70099C6C6 /* Build configuration list for PBXNativeTarget "DN ReaderTests" */;
+			buildPhases = (
+				FE06800C192C50C70099C6C6 /* Sources */,
+				FE06800D192C50C70099C6C6 /* Frameworks */,
+				FE06800E192C50C70099C6C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE068016192C50C70099C6C6 /* PBXTargetDependency */,
+			);
+			name = "DN ReaderTests";
+			productName = "DN ReaderTests";
+			productReference = FE068010192C50C70099C6C6 /* DN ReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE067FE4192C50C60099C6C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Mario C. Delgado Jr.";
+				TargetAttributes = {
+					FE06800F192C50C70099C6C6 = {
+						TestTargetID = FE067FEB192C50C60099C6C6;
+					};
+				};
+			};
+			buildConfigurationList = FE067FE7192C50C60099C6C6 /* Build configuration list for PBXProject "DN Reader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE067FE3192C50C60099C6C6;
+			productRefGroup = FE067FED192C50C60099C6C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE067FEB192C50C60099C6C6 /* DN Reader */,
+				FE06800F192C50C70099C6C6 /* DN ReaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE067FEA192C50C60099C6C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE068006192C50C60099C6C6 /* Main_iPad.storyboard in Resources */,
+				FE06800B192C50C60099C6C6 /* Images.xcassets in Resources */,
+				FE068003192C50C60099C6C6 /* Main_iPhone.storyboard in Resources */,
+				FE067FFA192C50C60099C6C6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE06800E192C50C70099C6C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE06801C192C50C70099C6C6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE067FE8192C50C60099C6C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE068009192C50C60099C6C6 /* ViewController.m in Sources */,
+				FE068000192C50C60099C6C6 /* AppDelegate.m in Sources */,
+				FE067FFC192C50C60099C6C6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE06800C192C50C70099C6C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE06801E192C50C70099C6C6 /* DN_ReaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE068016192C50C70099C6C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE067FEB192C50C60099C6C6 /* DN Reader */;
+			targetProxy = FE068015192C50C70099C6C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FE067FF8192C50C60099C6C6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE067FF9192C50C60099C6C6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FE068001192C50C60099C6C6 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE068002192C50C60099C6C6 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		FE068004192C50C60099C6C6 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE068005192C50C60099C6C6 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		FE06801A192C50C70099C6C6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE06801B192C50C70099C6C6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FE06801F192C50C70099C6C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE068020192C50C70099C6C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE068022192C50C70099C6C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DN Reader/DN Reader-Prefix.pch";
+				INFOPLIST_FILE = "DN Reader/DN Reader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FE068023192C50C70099C6C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DN Reader/DN Reader-Prefix.pch";
+				INFOPLIST_FILE = "DN Reader/DN Reader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FE068025192C50C70099C6C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DN Reader.app/DN Reader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DN Reader/DN Reader-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DN ReaderTests/DN ReaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FE068026192C50C70099C6C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DN Reader.app/DN Reader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DN Reader/DN Reader-Prefix.pch";
+				INFOPLIST_FILE = "DN ReaderTests/DN ReaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE067FE7192C50C60099C6C6 /* Build configuration list for PBXProject "DN Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE06801F192C50C70099C6C6 /* Debug */,
+				FE068020192C50C70099C6C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE068021192C50C70099C6C6 /* Build configuration list for PBXNativeTarget "DN Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE068022192C50C70099C6C6 /* Debug */,
+				FE068023192C50C70099C6C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FE068024192C50C70099C6C6 /* Build configuration list for PBXNativeTarget "DN ReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE068025192C50C70099C6C6 /* Debug */,
+				FE068026192C50C70099C6C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE067FE4192C50C60099C6C6 /* Project object */;
+}
