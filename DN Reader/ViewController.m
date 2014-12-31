@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DNAPI.h"
+#import "ACSimpleKeychain.h"
 
 @interface ViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *dialogView;
@@ -107,7 +108,15 @@
                                                     // Do something after logged
                                                     NSLog(@"I am logged!");
                                                     // Perform segue
-                                                    [self performSegueWithIdentifier:@"loginToHomeScene" sender:self];
+                                                   // [self performSegueWithIdentifier:@"loginToHomeScene" sender:self];
+                                                    
+                                                    [self dismissViewControllerAnimated:YES completion:nil];
+                                                    // Save DN token
+                                                    ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+                                                    if ([keychain storeUsername:@"token" password:@"" identifier:token forService:@"DN"]) {
+                                                        NSLog(@"Saved token");
+                                                    }
+
                                                 }
                                                 else {
                                                     [self doErrorMessage];

@@ -1,4 +1,5 @@
 PODS:
+  - ACSimpleKeychain (0.3)
   - AFNetworking (2.5.0):
     - AFNetworking/NSURLConnection (= 2.5.0)
     - AFNetworking/NSURLSession (= 2.5.0)
@@ -29,14 +30,16 @@ PODS:
   - TPKeyboardAvoiding (1.2.4)
 
 DEPENDENCIES:
+  - ACSimpleKeychain
   - AFNetworking
   - canvas
-  - NSDate+TimeAgo (~> 1.0.2)
+  - NSDate+TimeAgo
   - SDWebImage (~> 3.5)
   - SOCKit
   - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
+  ACSimpleKeychain: c93aba1b086ba08860b501b7955b902afdfdd142
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   Canvas: ae2faca05a15c4d6659fb3ae5e2a14817df4449a
   NSDate+TimeAgo: f3533e0198fab05b716368b19f8c2185d53d6f3b

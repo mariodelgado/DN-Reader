@@ -5,5 +5,6 @@ pod 'TPKeyboardAvoiding'
 pod 'SOCKit'
 pod 'AFNetworking'
 pod 'SDWebImage', '~> 3.5'
-pod 'NSDate+TimeAgo',
+pod 'NSDate+TimeAgo'
+pod 'ACSimpleKeychain'
 

@@ -11,6 +11,8 @@
 #import "StoryTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "NSDate+TimeAgo.h"
+#import "ACSimpleKeychain.h"
+#import "ArticleTableViewController.h"
 
 @interface HomeTableViewController ()
 @property (nonatomic, strong) NSDictionary *data;
@@ -23,6 +25,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // See if user has token
+    ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
+    NSDictionary *credentials = [keychain credentialsForUsername:@"token" service:@"DN"];
+    NSString *token = [credentials valueForKey:ACKeychainIdentifier];
+    if(!token) {
+        // If has no token, show Login
+        [self performSegueWithIdentifier:@"homeToLoginScene" sender:self];
+    }
+    
     
     // Get data
     NSURLRequest *request = [NSURLRequest requestWithPattern:DNAPIStories object:nil];
@@ -99,6 +111,22 @@
     // Change the cell height
     return 88;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *story = [self.data valueForKey:@"stories"][indexPath.row];
+    [self performSegueWithIdentifier:@"homeToArticleScene" sender:story];
+}
+
+//send data
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"homeToArticleScene"]){
+        ArticleTableViewController *controller = segue.destinationViewController;
+        controller.story = sender;
+        
+    }
+}
+
 
 - (NSDate*)dateWithJSONString:(NSString*)dateStr
 {

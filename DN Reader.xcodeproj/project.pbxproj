@@ -26,6 +26,7 @@
 		FE3DEB9D1A53916900464D2B /* DNAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3DEB9C1A53916900464D2B /* DNAPI.m */; };
 		FEFDCDBF1A53B4AF00250EAA /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDBE1A53B4AF00250EAA /* HomeTableViewController.m */; };
 		FEFDCDC21A53C3E900250EAA /* StoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDC11A53C3E900250EAA /* StoryTableViewCell.m */; };
+		FEFDCDC51A54966E00250EAA /* ArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDC41A54966E00250EAA /* ArticleTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		FEFDCDBE1A53B4AF00250EAA /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		FEFDCDC01A53C3E900250EAA /* StoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryTableViewCell.h; sourceTree = "<group>"; };
 		FEFDCDC11A53C3E900250EAA /* StoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryTableViewCell.m; sourceTree = "<group>"; };
+		FEFDCDC31A54966E00250EAA /* ArticleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableViewController.h; sourceTree = "<group>"; };
+		FEFDCDC41A54966E00250EAA /* ArticleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				FEFDCDBE1A53B4AF00250EAA /* HomeTableViewController.m */,
 				FEFDCDC01A53C3E900250EAA /* StoryTableViewCell.h */,
 				FEFDCDC11A53C3E900250EAA /* StoryTableViewCell.m */,
+				FEFDCDC31A54966E00250EAA /* ArticleTableViewController.h */,
+				FEFDCDC41A54966E00250EAA /* ArticleTableViewController.m */,
 			);
 			path = "DN Reader";
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				FE068009192C50C60099C6C6 /* ViewController.m in Sources */,
 				FEFDCDC21A53C3E900250EAA /* StoryTableViewCell.m in Sources */,
 				FEFDCDBF1A53B4AF00250EAA /* HomeTableViewController.m in Sources */,
+				FEFDCDC51A54966E00250EAA /* ArticleTableViewController.m in Sources */,
 				FE068000192C50C60099C6C6 /* AppDelegate.m in Sources */,
 				FE3DEB9D1A53916900464D2B /* DNAPI.m in Sources */,
 				FE067FFC192C50C60099C6C6 /* main.m in Sources */,
