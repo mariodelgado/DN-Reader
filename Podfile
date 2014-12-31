@@ -1,13 +1,9 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '6.0'
-
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'DN Reader' do
-
-end
-
-target 'DN ReaderTests' do
-
-end
+pod 'canvas'
+pod 'TPKeyboardAvoiding'
+pod 'SOCKit'
+pod 'AFNetworking'
+pod 'SDWebImage', '~> 3.5'
+pod 'NSDate+TimeAgo',
 
