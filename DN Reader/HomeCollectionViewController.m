@@ -1,38 +1,45 @@
 //
-//  HomeTableViewController.m
+//  HomeCollectionViewController.m
 //  DN Reader
 //
-//  Created by Mario C. Delgado Jr. on 12/30/14.
-//  Copyright (c) 2014 Mario C. Delgado Jr. All rights reserved.
+//  Created by Mario C. Delgado Jr. on 1/1/15.
+//  Copyright (c) 2015 Mario C. Delgado Jr. All rights reserved.
 //
 
-#import "HomeTableViewController.h"
+#import "HomeCollectionViewController.h"
 #import "DNAPI.h"
-#import "StoryTableViewCell.h"
+#import "StoryCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "NSDate+TimeAgo.h"
 #import "ACSimpleKeychain.h"
 #import "ArticleTableViewController.h"
 
-@interface HomeTableViewController ()
+@interface HomeCollectionViewController ()
 @property (nonatomic, strong) NSDictionary *data;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
+
 @end
 
-@implementation HomeTableViewController
+@implementation HomeCollectionViewController
 
-- (void)viewDidLoad
-{
+static NSString * const reuseIdentifier = @"Cell";
+
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     // Pull to refresh in viewDidLoad
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh)
              forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
+//    self.refreshControl = refreshControl;
     [self getData];
     
+    
+     self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Register cell classes
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // See if user has token
     ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
@@ -42,9 +49,11 @@
         // If has no token, show Login
         [self performSegueWithIdentifier:@"homeToLoginScene" sender:self];
     }
-    
-  }
 
+    [self getData];
+
+
+}
 
 -(void)getData {
     
@@ -64,19 +73,19 @@
                                                 NSLog(@"%@", self.data);
                                                 
                                                 // Reload data after Get
-                                                [self.tableView reloadData];
+                                                [self.collectionView reloadData];
                                                 
                                                 // Hide loading
                                                 self.loadingIndicator.hidden = YES;
                                                 
                                                 //end refresh
-                                                [self.refreshControl endRefreshing];
-
+                                           //     [self.refreshControl endRefreshing];
+                                                
                                                 
                                             });
                                         }];
     [task resume];
-
+    
 }
 
 
@@ -86,47 +95,63 @@
     [self getData];
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+#pragma mark <UICollectionViewDataSource>
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+#warning Incomplete method implementation -- Return the number of sections
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+#warning Incomplete method implementation -- Return the number of items in the section
     return [[self.data valueForKey:@"stories"] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"storyCell" forIndexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    StoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"storyCell" forIndexPath:indexPath];
+    
     
     // Get data from the array at position of the row
     NSDictionary *story = [self.data valueForKey:@"stories"][indexPath.row];
     // Apply the data to each row
+    
     cell.titleLabel.text = [story valueForKey:@"title"];
     cell.authorLabel.text = [NSString stringWithFormat:@"%@, %@", [story valueForKey:@"user_display_name"], [story valueForKey:@"user_job"]];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@", [story valueForKey:@"comment_count"]];
+    
     cell.upvoteLabel.text = [NSString stringWithFormat:@"%@", [story valueForKey:@"vote_count"]];
-    
-    // Image from Web
+
     [cell.avatarImageView sd_setImageWithURL:[story valueForKeyPath:@"user_portrait_url"]];
-    
-    // Simple date
-  //  NSString* strDate = [story objectForKey:@"created_at"];
-  //  NSDate *time = [self dateWithJSONString:strDate];
-  //  cell.timeLabel.text = [time timeAgoSimple];
-  //  NSLog(@"%@", [time timeAgoSimple]);
-    
-    // Badges
     cell.artImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@", [story valueForKeyPath:@"badge"]]];
     
-    // Remove Accessory
-    cell.accessoryType = UITableViewCellAccessoryNone;
     
+    
+    
+    
+    // Simple date
+    //  NSString* strDate = [story objectForKey:@"created_at"];
+    //  NSDate *time = [self dateWithJSONString:strDate];
+    //  cell.timeLabel.text = [time timeAgoSimple];
+    //  NSLog(@"%@", [time timeAgoSimple]);
+
     return cell;
 }
 
@@ -136,7 +161,7 @@
     return 88;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *story = [self.data valueForKey:@"stories"][indexPath.row];
     [self performSegueWithIdentifier:@"homeToArticleScene" sender:story];
 }
@@ -150,6 +175,8 @@
         
     }
 }
+
+
 
 
 - (NSDate*)dateWithJSONString:(NSString*)dateStr
@@ -166,5 +193,4 @@
     
     return date;
 }
-
 @end

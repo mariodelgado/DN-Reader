@@ -10,6 +10,7 @@
 #import "StoryTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "NSDate+TimeAgo.h"
+#import "WebViewController.h"
 
 
 @interface ArticleTableViewController ()
@@ -121,6 +122,25 @@
         cell.descriptionLabel.text = [comment valueForKeyPath:@"body"];
     }
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // When user selects a row
+    NSString *fullURL = [self.story valueForKey:@"url"];
+    if(indexPath.row == 0) {
+        // Perform segue if first row
+        [self performSegueWithIdentifier:@"articleToWebScene" sender:fullURL];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"articleToWebScene"]) {
+        WebViewController *controller = segue.destinationViewController;
+        controller.fullURL = sender;
+    }
+}
+
+
 
 - (NSDate*)dateWithJSONString:(NSString*)dateStr
 {
