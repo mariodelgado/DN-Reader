@@ -24,6 +24,7 @@
 		FE06801C192C50C70099C6C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE06801A192C50C70099C6C6 /* InfoPlist.strings */; };
 		FE06801E192C50C70099C6C6 /* DN_ReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06801D192C50C70099C6C6 /* DN_ReaderTests.m */; };
 		FE3DEB9D1A53916900464D2B /* DNAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3DEB9C1A53916900464D2B /* DNAPI.m */; };
+		FE7EAE161A578A6D0078734E /* ArticleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7EAE151A578A6D0078734E /* ArticleCollectionViewController.m */; };
 		FEFDCDBF1A53B4AF00250EAA /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDBE1A53B4AF00250EAA /* HomeTableViewController.m */; };
 		FEFDCDC21A53C3E900250EAA /* StoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDC11A53C3E900250EAA /* StoryTableViewCell.m */; };
 		FEFDCDC51A54966E00250EAA /* ArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDC41A54966E00250EAA /* ArticleTableViewController.m */; };
@@ -68,6 +69,8 @@
 		FE06801D192C50C70099C6C6 /* DN_ReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DN_ReaderTests.m; sourceTree = "<group>"; };
 		FE3DEB9B1A53916900464D2B /* DNAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNAPI.h; sourceTree = "<group>"; };
 		FE3DEB9C1A53916900464D2B /* DNAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNAPI.m; sourceTree = "<group>"; };
+		FE7EAE141A578A6D0078734E /* ArticleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleCollectionViewController.h; sourceTree = "<group>"; };
+		FE7EAE151A578A6D0078734E /* ArticleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleCollectionViewController.m; sourceTree = "<group>"; };
 		FEFDCDBD1A53B4AF00250EAA /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		FEFDCDBE1A53B4AF00250EAA /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		FEFDCDC01A53C3E900250EAA /* StoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryTableViewCell.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				FEFDCDCA1A55E59800250EAA /* HomeCollectionViewController.m */,
 				FEFDCDCC1A563DB600250EAA /* StoryCollectionViewCell.h */,
 				FEFDCDCD1A563DB600250EAA /* StoryCollectionViewCell.m */,
+				FE7EAE141A578A6D0078734E /* ArticleCollectionViewController.h */,
+				FE7EAE151A578A6D0078734E /* ArticleCollectionViewController.m */,
 			);
 			path = "DN Reader";
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7EAE161A578A6D0078734E /* ArticleCollectionViewController.m in Sources */,
 				FEFDCDCE1A563DB600250EAA /* StoryCollectionViewCell.m in Sources */,
 				FE068009192C50C60099C6C6 /* ViewController.m in Sources */,
 				FEFDCDC21A53C3E900250EAA /* StoryTableViewCell.m in Sources */,

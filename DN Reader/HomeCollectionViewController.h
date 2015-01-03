@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeCollectionViewController : UICollectionViewController
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 
 @end

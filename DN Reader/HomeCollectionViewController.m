@@ -9,12 +9,14 @@
 #import "HomeCollectionViewController.h"
 #import "DNAPI.h"
 #import "StoryCollectionViewCell.h"
+#import "StoryTableViewCell.h"
+#import "ArticleTableViewController.h"
 #import "UIImageView+WebCache.h"
 #import "NSDate+TimeAgo.h"
 #import "ACSimpleKeychain.h"
-#import "ArticleTableViewController.h"
+#import "ArticleCollectionViewController.h"
 
-@interface HomeCollectionViewController ()
+@interface HomeCollectionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSDictionary *data;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
@@ -50,10 +52,20 @@ static NSString * const reuseIdentifier = @"Cell";
         [self performSegueWithIdentifier:@"homeToLoginScene" sender:self];
     }
 
-    [self getData];
+    [[[[UIApplication sharedApplication] delegate] window] setWindowLevel:UIWindowLevelStatusBar+1];
+
+    //[[[[UIApplication sharedApplication] delegate] window] setWindowLevel:UIWindowLevelNormal];
 
 
+    
 }
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+
+
 
 -(void)getData {
     
@@ -155,16 +167,15 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Change the cell height
-    return 88;
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *story = [self.data valueForKey:@"stories"][indexPath.row];
     [self performSegueWithIdentifier:@"homeToArticleScene" sender:story];
 }
+
+
+
+
 
 //send data
 
@@ -172,6 +183,8 @@ static NSString * const reuseIdentifier = @"Cell";
     if ([segue.identifier isEqualToString:@"homeToArticleScene"]){
         ArticleTableViewController *controller = segue.destinationViewController;
         controller.story = sender;
+       // controller.useLayoutToLayoutNavigationTransitions = YES;
+
         
     }
 }

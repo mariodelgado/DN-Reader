@@ -22,6 +22,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO
+                                            withAnimation:UIStatusBarAnimationFade];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+        [[[[UIApplication sharedApplication] delegate] window] setWindowLevel:UIWindowLevelNormal];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -29,6 +37,17 @@
     
     // Testing data
     NSLog(@"Test story%@", self.story);
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        
+        [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                                withAnimation:UIStatusBarAnimationFade];
+        
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Table view data source
