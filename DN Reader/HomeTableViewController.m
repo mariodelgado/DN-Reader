@@ -26,14 +26,6 @@
 {
     [super viewDidLoad];
     
-    // Pull to refresh in viewDidLoad
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refresh)
-             forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
-    [self getData];
-    
-    
     // See if user has token
     ACSimpleKeychain *keychain = [ACSimpleKeychain defaultKeychain];
     NSDictionary *credentials = [keychain credentialsForUsername:@"token" service:@"DN"];
@@ -43,10 +35,6 @@
         [self performSegueWithIdentifier:@"homeToLoginScene" sender:self];
     }
     
-  }
-
-
--(void)getData {
     
     // Get data
     NSURLRequest *request = [NSURLRequest requestWithPattern:DNAPIStories object:nil];
@@ -69,21 +57,9 @@
                                                 // Hide loading
                                                 self.loadingIndicator.hidden = YES;
                                                 
-                                                //end refresh
-                                                [self.refreshControl endRefreshing];
-
-                                                
                                             });
                                         }];
     [task resume];
-
-}
-
-
-- (void)refresh
-{
-    // Get data
-    [self getData];
 }
 
 #pragma mark - Table view data source

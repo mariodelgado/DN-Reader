@@ -10,7 +10,6 @@
 #import "StoryTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "NSDate+TimeAgo.h"
-#import "WebViewController.h"
 
 
 @interface ArticleTableViewController ()
@@ -22,14 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO
-                                            withAnimation:UIStatusBarAnimationFade];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    
-        [[[[UIApplication sharedApplication] delegate] window] setWindowLevel:UIWindowLevelNormal];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -37,17 +28,6 @@
     
     // Testing data
     NSLog(@"Test story%@", self.story);
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        
-        [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                                withAnimation:UIStatusBarAnimationFade];
-        
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-    }
-    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Table view data source
@@ -141,25 +121,6 @@
         cell.descriptionLabel.text = [comment valueForKeyPath:@"body"];
     }
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // When user selects a row
-    NSString *fullURL = [self.story valueForKey:@"url"];
-    if(indexPath.row == 0) {
-        // Perform segue if first row
-        [self performSegueWithIdentifier:@"articleToWebScene" sender:fullURL];
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"articleToWebScene"]) {
-        WebViewController *controller = segue.destinationViewController;
-        controller.fullURL = sender;
-    }
-}
-
-
 
 - (NSDate*)dateWithJSONString:(NSString*)dateStr
 {
