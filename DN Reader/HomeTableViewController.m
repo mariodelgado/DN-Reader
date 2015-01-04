@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSDictionary *data;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
+@property (weak, nonatomic) id  delegate;
+
+
 @end
 
 @implementation HomeTableViewController
@@ -35,6 +38,26 @@
         [self performSegueWithIdentifier:@"homeToLoginScene" sender:self];
     }
     
+    
+    // Pull to refresh in viewDidLoad
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh)
+             forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    
+    [self getData];
+    
+   }
+
+
+
+- (void)refresh
+{
+    // Get data
+    [self getData];
+}
+
+- (void)getData{
     
     // Get data
     NSURLRequest *request = [NSURLRequest requestWithPattern:DNAPIStories object:nil];
@@ -57,10 +80,16 @@
                                                 // Hide loading
                                                 self.loadingIndicator.hidden = YES;
                                                 
+                                                // End refresh
+                                                [self.refreshControl endRefreshing];
+                                                
                                             });
                                         }];
     [task resume];
+
 }
+
+
 
 #pragma mark - Table view data source
 
@@ -103,6 +132,8 @@
     // Remove Accessory
     cell.accessoryType = UITableViewCellAccessoryNone;
     
+    cell.delegate = self;
+    
     return cell;
 }
 
@@ -141,6 +172,31 @@
     dateStr = [dateFormat stringFromDate:date];
     
     return date;
+}
+
+
+#pragma mark StoryTableViewCellDelegate
+- (void)storyTableViewCell:(StoryTableViewCell *)cell upvoteButtonDidPress:(id)sender {
+    
+    if(cell.isUpvoted) {
+        // Toggle
+        cell.upvoteLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+
+        cell.isUpvoted = NO;
+    }
+    else {
+        // Toggle
+        cell.upvoteLabel.textColor = [UIColor colorWithRed:0.203 green:0.329 blue:0.835 alpha:1];
+
+        cell.isUpvoted = YES;
+    }
+    
+    
+    
+    // Change button image
+    //cell.upvoteImageView.image = [UIImage imageNamed:@"icon-upvote-active"];
+    // Change text color
+    cell.upvoteLabel.textColor = [UIColor colorWithRed:0.203 green:0.329 blue:0.835 alpha:1];
 }
 
 @end

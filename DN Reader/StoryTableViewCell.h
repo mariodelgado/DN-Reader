@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class StoryTableViewCell;
+@protocol StoryTableViewCellDelegate
+
+- (void)storyTableViewCell:(StoryTableViewCell *)cell upvoteButtonDidPress:(id)sender;
+
+
+@end
+
+
 @interface StoryTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *artImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -16,5 +25,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+- (IBAction)onUpvote:(id)sender;
+- (IBAction)onComment:(id)sender;
+
+@property (nonatomic) BOOL isUpvoted;
+
+
+@property (weak, nonatomic) id  delegate;
 
 @end

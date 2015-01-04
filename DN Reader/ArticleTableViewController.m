@@ -8,6 +8,7 @@
 
 #import "ArticleTableViewController.h"
 #import "StoryTableViewCell.h"
+#import "WebViewController.h"
 #import "UIImageView+WebCache.h"
 #import "NSDate+TimeAgo.h"
 
@@ -21,10 +22,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.estimatedRowHeight = 100.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+
 }
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+
+    [self.tableView reloadData];
     
     // Testing data
     NSLog(@"Test story%@", self.story);
@@ -51,20 +61,13 @@
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [self configureCell:cell forIndexPath:indexPath];
     
+    // Set delegate
+    
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Cell identifier
-    NSString *cellIdentifier = [self cellIdentifierForIndexPath:indexPath];
-    StoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    [self configureCell:cell forIndexPath:indexPath];
-    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    
-    // Change the cell height
-    return height+1;
-}
+
+
 
 #pragma mark - Private methods
 
@@ -87,6 +90,8 @@
         cell.titleLabel.text = [story valueForKeyPath:@"title"];
         cell.authorLabel.text = [NSString stringWithFormat:@"%@, %@", [story valueForKey:@"user_display_name"], [story valueForKey:@"user_job"]];
         cell.commentLabel.text = [NSString stringWithFormat:@"%@", [story valueForKey:@"comment_count"]];
+        
+
         cell.upvoteLabel.text = [NSString stringWithFormat:@"%@", [story valueForKey:@"vote_count"]];
         
         // Image from Web
@@ -99,6 +104,7 @@
         
         // Comment
         cell.descriptionLabel.text = [story valueForKeyPath:@"comment"];
+        [cell.descriptionLabel sizeToFit];
     }
     else {
         // Values
@@ -119,8 +125,33 @@
         
         // Comment
         cell.descriptionLabel.text = [comment valueForKeyPath:@"body"];
+        [cell.descriptionLabel sizeToFit];
     }
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // When user selects a row
+    NSString *fullURL = [self.story valueForKey:@"url"];
+    if(indexPath.row == 0) {
+        // Perform segue if first row
+        [self performSegueWithIdentifier:@"articleToWebScene" sender:fullURL];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"articleToWebScene"]) {
+        WebViewController *controller = segue.destinationViewController;
+        controller.fullURL = sender;
+        controller.story = self.story;
+    }
+//    if([segue.identifier isEqualToString:@"articleToCommentScene"]) {
+//        UINavigationController *navController = segue.destinationViewController;
+//        CommentViewController *controller = [navController viewControllers][0];
+//        controller.story = self.story;
+//    }
+}
+
 
 - (NSDate*)dateWithJSONString:(NSString*)dateStr
 {

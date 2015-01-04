@@ -24,6 +24,7 @@
 		FE06801C192C50C70099C6C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE06801A192C50C70099C6C6 /* InfoPlist.strings */; };
 		FE06801E192C50C70099C6C6 /* DN_ReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE06801D192C50C70099C6C6 /* DN_ReaderTests.m */; };
 		FE3DEB9D1A53916900464D2B /* DNAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3DEB9C1A53916900464D2B /* DNAPI.m */; };
+		FED139321A58B5F400D2F7FC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FED139301A58B5F400D2F7FC /* WebViewController.m */; };
 		FEFDCDBF1A53B4AF00250EAA /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDBE1A53B4AF00250EAA /* HomeTableViewController.m */; };
 		FEFDCDC21A53C3E900250EAA /* StoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDC11A53C3E900250EAA /* StoryTableViewCell.m */; };
 		FEFDCDC51A54966E00250EAA /* ArticleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFDCDC41A54966E00250EAA /* ArticleTableViewController.m */; };
@@ -65,6 +66,8 @@
 		FE06801D192C50C70099C6C6 /* DN_ReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DN_ReaderTests.m; sourceTree = "<group>"; };
 		FE3DEB9B1A53916900464D2B /* DNAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNAPI.h; sourceTree = "<group>"; };
 		FE3DEB9C1A53916900464D2B /* DNAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNAPI.m; sourceTree = "<group>"; };
+		FED139301A58B5F400D2F7FC /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		FED139311A58B5F400D2F7FC /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		FEFDCDBD1A53B4AF00250EAA /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		FEFDCDBE1A53B4AF00250EAA /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		FEFDCDC01A53C3E900250EAA /* StoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryTableViewCell.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 		FE067FF5192C50C60099C6C6 /* DN Reader */ = {
 			isa = PBXGroup;
 			children = (
+				FED139301A58B5F400D2F7FC /* WebViewController.m */,
+				FED139311A58B5F400D2F7FC /* WebViewController.h */,
 				FE067FFE192C50C60099C6C6 /* AppDelegate.h */,
 				FE067FFF192C50C60099C6C6 /* AppDelegate.m */,
 				FE068001192C50C60099C6C6 /* Main_iPhone.storyboard */,
@@ -327,6 +332,7 @@
 				FE068009192C50C60099C6C6 /* ViewController.m in Sources */,
 				FEFDCDC21A53C3E900250EAA /* StoryTableViewCell.m in Sources */,
 				FEFDCDBF1A53B4AF00250EAA /* HomeTableViewController.m in Sources */,
+				FED139321A58B5F400D2F7FC /* WebViewController.m in Sources */,
 				FEFDCDC51A54966E00250EAA /* ArticleTableViewController.m in Sources */,
 				FE068000192C50C60099C6C6 /* AppDelegate.m in Sources */,
 				FE3DEB9D1A53916900464D2B /* DNAPI.m in Sources */,

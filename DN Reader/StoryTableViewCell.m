@@ -20,4 +20,14 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)onUpvote:(id)sender {
+    
+    self.upvoteLabel.textColor = [UIColor colorWithRed:0.203 green:0.329 blue:0.835 alpha:1];
+    
+    [self.delegate storyTableViewCell:self upvoteButtonDidPress:sender];
+
+}
+
+- (IBAction)onComment:(id)sender {
+}
 @end
