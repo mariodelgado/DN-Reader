@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class StoryTableViewCell;
-@protocol StoryTableViewCellDelegate
+
+@protocol StoryTableViewCellDelegate <NSObject>
 
 - (void)storyTableViewCell:(StoryTableViewCell *)cell upvoteButtonDidPress:(id)sender;
+- (void)storyTableViewCell:(StoryTableViewCell *)cell commentButtonDidPress:(id)sender;
+
 
 
 @end
@@ -29,6 +32,7 @@
 - (IBAction)onComment:(id)sender;
 
 @property (nonatomic) BOOL isUpvoted;
+@property (weak, nonatomic) IBOutlet UIButton *upvoteButton;
 
 
 @property (weak, nonatomic) id  delegate;

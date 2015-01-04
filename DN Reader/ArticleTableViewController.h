@@ -11,5 +11,7 @@
 @interface ArticleTableViewController : UITableViewController
 
 @property (nonatomic,strong) NSDictionary *story;
+- (IBAction)onUpvote:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *upvoteButton;
 
 @end

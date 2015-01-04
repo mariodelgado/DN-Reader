@@ -24,3 +24,16 @@ extern NSString *const DNAPILogin;
 
 
 @end
+
+@interface DNAPI : NSObject
+
++ (void)upvoteWithStory:(NSDictionary *)story;
+
+@end
+
+@interface DNUser : NSObject
+
++ (void)saveUpvoteWithStory:(NSDictionary *)story;
++ (void)isUpvotedWithStory:(NSDictionary *)story completion:(void (^)(BOOL succeed, NSError *error))completion;
+
+@end

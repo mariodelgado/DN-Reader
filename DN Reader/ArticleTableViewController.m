@@ -11,10 +11,10 @@
 #import "WebViewController.h"
 #import "UIImageView+WebCache.h"
 #import "NSDate+TimeAgo.h"
+#import "DNAPI.h"
 
 
-@interface ArticleTableViewController ()
-
+@interface ArticleTableViewController () <StoryTableViewCellDelegate>
 @end
 
 @implementation ArticleTableViewController
@@ -26,7 +26,14 @@
     self.tableView.estimatedRowHeight = 100.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-
+    
+    // is upvoted?
+    [DNUser isUpvotedWithStory:self.story completion:^(BOOL succeed, NSError *error) {
+        [self.upvoteButton setTitle:@"Upvoted!" forState:UIControlStateSelected];
+        self.upvoteButton.enabled = NO;
+    }];
+    
+    
 }
 
 
@@ -168,5 +175,57 @@
     return date;
 }
 
+- (IBAction)onUpvote:(id)sender {
+    
+    // indexPath at 0 is the Story cell
+    StoryTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"storyCell" forIndexPath:0];
+    // If story hasn't been upvoted, upvote and change the button title
+
+    if(!cell.isUpvoted) {
+        [self upvoteStory:cell];
+        [self.upvoteButton setTitle:@"Upvoted!" forState:UIControlStateSelected];
+        self.upvoteButton.enabled = NO;
+    }
+}
+
+- (void)upvoteStory: (StoryTableViewCell *)cell
+    {
+        // Get indexPath
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        // Get data from the array at position of the row
+        NSDictionary *story = self.story;
+        
+        // Only do API upvote if story hasn't been upvoted
+        if(!cell.isUpvoted) {
+            NSLog(@"upvoted yo");
+            // Change button image
+          //  cell.upvoteImageView.image = [UIImage imageNamed:@"icon-upvote-active"];
+            // Change text color
+            cell.upvoteLabel.textColor = [UIColor colorWithRed:0.203 green:0.329 blue:0.835 alpha:1];
+            // Toggle
+            cell.isUpvoted = YES;
+
+            
+            // Story only
+            if(indexPath.row == 0) {
+                // Increment number
+                int upvoteInt = [[story valueForKey:@"vote_count"] intValue] +1;
+                cell.upvoteLabel.text = [NSString stringWithFormat:@"%d", upvoteInt];
+                // Do API Post
+                [DNAPI upvoteWithStory:story];
+                // Save to Keychain
+                [DNUser saveUpvoteWithStory:story];
+            }
+        }
+    }
+    
+- (void)storyTableViewCell:(StoryTableViewCell *)cell commentButtonDidPress:(id)sender
+    {
+        
+    }
+
+
+
+    
 @end
 

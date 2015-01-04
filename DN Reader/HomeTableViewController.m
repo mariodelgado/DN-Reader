@@ -109,6 +109,17 @@
 {
     StoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"storyCell" forIndexPath:indexPath];
     
+    [self configureCell:cell forIndexPath:indexPath];
+
+    
+
+    cell.delegate = self;
+
+    return cell;
+}
+
+-(void)configureCell: (StoryTableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+    
     // Get data from the array at position of the row
     NSDictionary *story = [self.data valueForKey:@"stories"][indexPath.row];
     // Apply the data to each row
@@ -121,10 +132,10 @@
     [cell.avatarImageView sd_setImageWithURL:[story valueForKeyPath:@"user_portrait_url"]];
     
     // Simple date
-  //  NSString* strDate = [story objectForKey:@"created_at"];
-  //  NSDate *time = [self dateWithJSONString:strDate];
-  //  cell.timeLabel.text = [time timeAgoSimple];
-  //  NSLog(@"%@", [time timeAgoSimple]);
+    //  NSString* strDate = [story objectForKey:@"created_at"];
+    //  NSDate *time = [self dateWithJSONString:strDate];
+    //  cell.timeLabel.text = [time timeAgoSimple];
+    //  NSLog(@"%@", [time timeAgoSimple]);
     
     // Badges
     cell.artImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@", [story valueForKeyPath:@"badge"]]];
@@ -132,9 +143,25 @@
     // Remove Accessory
     cell.accessoryType = UITableViewCellAccessoryNone;
     
-    cell.delegate = self;
     
-    return cell;
+    // Reset when cells are re-rendered
+    // Change button image
+    //  cell.upvoteImageView.image = [UIImage imageNamed:@"icon-upvote"];
+    // Change text color
+    cell.upvoteLabel.textColor = [UIColor colorWithRed:0.627 green:0.69 blue:0.745 alpha:1];
+    // Toggle
+    cell.isUpvoted = NO;
+    
+    
+    [DNUser isUpvotedWithStory:story completion:^(BOOL succeed, NSError *error) {
+        // Change button image
+        //   cell.upvoteImageView.image = [UIImage imageNamed:@"icon-upvote-active"];
+        // Change text color
+        cell.upvoteLabel.textColor = [UIColor colorWithRed:0.203 green:0.329 blue:0.835 alpha:1];
+        // Toggle
+        cell.isUpvoted = YES;
+    }];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,6 +173,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *story = [self.data valueForKey:@"stories"][indexPath.row];
     [self performSegueWithIdentifier:@"homeToArticleScene" sender:story];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 //send data
@@ -176,27 +206,48 @@
 
 
 #pragma mark StoryTableViewCellDelegate
-- (void)storyTableViewCell:(StoryTableViewCell *)cell upvoteButtonDidPress:(id)sender {
+- (void)storyTableViewCell:(StoryTableViewCell *)cell upvoteButtonDidPress:(id)sender
+{
+    // Get indexPath
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    // Get data from the array at position of the row
+    NSDictionary *story = [self.data valueForKey:@"stories"][indexPath.row];
     
-    if(cell.isUpvoted) {
-        // Toggle
-        cell.upvoteLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
-
-        cell.isUpvoted = NO;
-    }
-    else {
-        // Toggle
+    // Only do API upvote if story hasn't been upvoted
+    if(!cell.isUpvoted) {
+        // Change button image
+      //  cell.upvoteImageView.image = [UIImage imageNamed:@"icon-upvote-active"];
+        // Change text color
         cell.upvoteLabel.textColor = [UIColor colorWithRed:0.203 green:0.329 blue:0.835 alpha:1];
-
+        // Toggle
         cell.isUpvoted = YES;
+        // Pop animation
+       // UIImageView *view = cell.upvoteImageView;
+//        NSTimeInterval duration = 0.5;
+//        NSTimeInterval delay = 0;
+//        [UIView animateKeyframesWithDuration:duration/3 delay:delay options:0 animations:^{
+//            // End
+//            view.transform = CGAffineTransformMakeScale(1.5, 1.5);
+//        } completion:^(BOOL finished) {
+//            [UIView animateKeyframesWithDuration:duration/3 delay:0 options:0 animations:^{
+//                // End
+//                view.transform = CGAffineTransformMakeScale(0.7, 0.7);
+//            } completion:^(BOOL finished) {
+//                [UIView animateKeyframesWithDuration:duration/3 delay:0 options:0 animations:^{
+//                    // End
+//                    view.transform = CGAffineTransformMakeScale(1, 1);
+//                } completion:nil];
+//            }];
+//        }];
+        // Increment number
+        int upvoteInt = [[story valueForKey:@"vote_count"] intValue] +1;
+        cell.upvoteLabel.text = [NSString stringWithFormat:@"%d", upvoteInt];
+        // Do API Post
+        [DNAPI upvoteWithStory:story];
+        // Save to Keychain
+        [DNUser saveUpvoteWithStory:story];
     }
-    
-    
-    
-    // Change button image
-    //cell.upvoteImageView.image = [UIImage imageNamed:@"icon-upvote-active"];
-    // Change text color
-    cell.upvoteLabel.textColor = [UIColor colorWithRed:0.203 green:0.329 blue:0.835 alpha:1];
 }
+
 
 @end
